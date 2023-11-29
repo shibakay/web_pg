@@ -1,12 +1,22 @@
+/* 基本設定 */
 @charset "UTF-8";
 
-body {
-    font-family: Arial, sans-serif;
+/* 基本的なリセットとボックスサイジングの設定 */
+* {
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
+    box-sizing: border-box;
 }
 
+/* ボディ全体のスタイル設定 */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    line-height: 1.6;
+    padding: 20px;
+}
+
+/* ナビゲーションバーのスタイル */
 .navbar {
     background-color: #333;
     overflow: hidden;
@@ -14,7 +24,6 @@ body {
 
 .navbar-nav {
     list-style-type: none;
-    margin: 0;
     padding: 0;
 }
 
@@ -35,26 +44,40 @@ body {
     color: black;
 }
 
+/* メディアクエリによるレスポンシブ対応 */
 @media screen and (max-width: 600px) {
     .navbar-nav li {
         float: none;
     }
 }
 
-
-h1 {
-    color: #333;
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
 }
 
-main {
+/* その他のスタイル */
+h1, .header {
+    color: #333;
+    text-align: center;
+}
+
+.main {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
 }
 
-.form-group {
-    margin-bottom: 15px;
+.container {
+    max-width: 1170px;
+    margin: auto;
+    padding: 20px;
+}
+
+.form-group, .input-group {
+    margin-bottom: 20px;
 }
 
 label {
@@ -64,8 +87,7 @@ label {
     color: #555;
 }
 
-input[type="text"],
-textarea {
+input[type="text"], input[type="password"],textarea, .input-group input {
     width: 100%;
     padding: 10px;
     margin: 10px 0;
@@ -78,8 +100,26 @@ input[type="file"] {
     margin: 10px 0;
 }
 
-input[type="submit"],
-button {
+.like-button {
+    background-color: #007bff97;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+
+.like-button:hover {
+    background-color: rgba(255, 0, 212, 0.336); 
+}
+
+
+input[type="submit"], button, .btn {
     background-color: #5cb85c;
     color: white;
     padding: 10px 15px;
@@ -87,14 +127,18 @@ button {
     border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.3s;
+    text-align: center;
 }
 
-input[type="submit"]:hover,
-button:hover {
+input[type="submit"]:hover, button:hover, .btn:hover {
     background-color: #4cae4c;
 }
 
-form {
+.btn-primary {
+    background-color: #6cace4;
+}
+
+form, .login-form, .registration-form {
     background: white;
     padding: 20px;
     border-radius: 8px;
@@ -106,6 +150,8 @@ form {
     border: 1px solid #ddd;
     margin-bottom: 20px;
     padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .post-user {
@@ -113,7 +159,7 @@ form {
     margin-bottom: 10px;
 }
 
-.post-title {
+.post-title, .post h3 {
     font-size: 1.2em;
     color: #333;
     margin-bottom: 10px;
@@ -159,5 +205,114 @@ form {
 
 .comments-count {
     margin-left: 10px;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.posts {
+    flex: 3;
+    /* 投稿エリアのスタイリング */
+}
+
+.sidebar {
+    flex: 1;
+    /* サイドバーのスタイリング */
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 5px 0;
+    background-color: #007bff;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.button:hover {
+    background-color: #0056b3;
+    color: white;
+}
+
+.login-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* ビューポートの高さに合わせる */
+    margin: 0 auto; /* 水平方向の中央揃え */
+}
+
+.form-container {
+    width: 100%; /* 必要に応じて調整 */
+    max-width: 400px; /* フォームの最大幅を制限 */
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    background: white;
+}
+
+.logout-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* ビューポートの高さに合わせる */
+    margin: 0 auto; /* 水平方向の中央揃え */
+}
+
+.form-container {
+    text-align: center; /* テキストとボタンを中央揃えにする */
+}
+
+/* 既存のCSSの続き... */
+
+/* サイドバーのスタイリング */
+.sidebar {
+    width: 200px; /* 幅の設定 */
+    position: fixed; /* 固定位置 */
+    right: 0; /* 右側に配置 */
+    top: 0; /* トップからの位置 */
+    height: 100vh; /* ビューポートの高さに合わせる */
+    background-color: #f4f4f4; /* 背景色 */
+    box-shadow: -5px 0px 5px rgba(0, 0, 0, 0.1); /* 影の追加 */
+    padding: 20px; /* 内部の余白 */
+}
+
+.menu {
+    list-style: none; /* リストスタイルの無効化 */
+    padding: 0; /* パディングのリセット */
+}
+
+.menu li {
+    margin-bottom: 10px; /* リストアイテム間の余白 */
+}
+
+.menu li a {
+    text-decoration: none; /* テキストの下線を消去 */
+    color: #333; /* テキスト色 */
+    font-weight: bold; /* フォントの太さ */
+}
+
+.menu li a:hover {
+    color: #007bff; /* ホバー時の色 */
+}
+
+#loginPopup {
+    position: fixed;
+    width: 300px;
+    padding: 20px;
+    border: 1px solid #000;
+    background-color: white;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
+    z-index: 1000;
 }
 

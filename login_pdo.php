@@ -4,7 +4,7 @@ session_start();
 
 if (isset($_REQUEST['username']) && isset($_REQUEST['password'])) {
     // セッションをリセット
-    unset($_SESSION['user']);
+    unset($_SESSION['users']);
     
     // データベース接続
     $host = 'localhost';
@@ -48,6 +48,7 @@ if (isset($_REQUEST['username']) && isset($_REQUEST['password'])) {
                 'updated_at' => $row['updated_at'],
                 
             ];
+            setcookie("username", $username, time() + (86400 * 30)); // 30日間有効
             echo 'おかえりなさい、', $_SESSION['users']['username'], 'さん。';
         } else {
             // ログイン失敗

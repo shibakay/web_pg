@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
+    <?php require 'menu.php'; ?>
     <main>
     <h2>さあ投稿をはじめましょう！</h2>
     <form action="upload_post.php" method="post" enctype="multipart/form-data">

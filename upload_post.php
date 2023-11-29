@@ -1,7 +1,7 @@
 <?php
 session_start();
-if (empty($_SESSION['user'])) {
-    header('Location: login.php');
+if (empty($_SESSION['users'])) {
+    header('Location: login-input.php');
     exit;
 }
 
@@ -22,24 +22,25 @@ try {
 // データベースへの投稿処理
 $title = isset($_POST['title']) ? $_POST['title'] : null;
 $content = isset($_POST['content']) ? $_POST['content'] : '';
-
 if (empty($content)) {
     header('Location: create_post.php');
     exit;
 }
+$userId = $_SESSION['users']['user_id'];
 
-$sql = 'INSERT INTO posts (title, content) VALUES (:title, :content)';
+$sql = 'INSERT INTO posts (user_id, title, content) VALUES (:user_id, :title, :content)';
 $stmt = $pdo->prepare($sql);
-$stmt->execute([':title' => $title, ':content' => $content]);
+$stmt->execute([':user_id' => $userId, ':title' => $title, ':content' => $content]);
 
 // 最新の投稿IDを取得
 $postId = $pdo->lastInsertId();
 
 // ファイルアップロード処理
+var_dump($_FILES);
 if (isset($_FILES['image']) && $_FILES['image']['error'] == UPLOAD_ERR_OK) {
     $tmp_name = $_FILES['image']['tmp_name'];
     $name = basename($_FILES['image']['name']);
-    $uploadPath = "uploads/" . $name;
+    $uploadPath = "upimages/" . $name;
     move_uploaded_file($tmp_name, $uploadPath);
 
     // データベースへの画像投稿処理

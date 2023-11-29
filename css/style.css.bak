@@ -1,0 +1,163 @@
+@charset "UTF-8";
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.navbar {
+    background-color: #333;
+    overflow: hidden;
+}
+
+.navbar-nav {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar-nav li {
+    float: left;
+}
+
+.navbar-nav li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.navbar-nav li a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+@media screen and (max-width: 600px) {
+    .navbar-nav li {
+        float: none;
+    }
+}
+
+
+h1 {
+    color: #333;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #555;
+}
+
+input[type="text"],
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+}
+
+input[type="file"] {
+    margin: 10px 0;
+}
+
+input[type="submit"],
+button {
+    background-color: #5cb85c;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+input[type="submit"]:hover,
+button:hover {
+    background-color: #4cae4c;
+}
+
+form {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.post {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    margin-bottom: 20px;
+    padding: 15px;
+}
+
+.post-user {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.post-title {
+    font-size: 1.2em;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.post-content {
+    margin-bottom: 10px;
+}
+
+.post-image {
+    margin-bottom: 10px;
+}
+
+.post-image img {
+    max-width: 100%;
+    height: auto;
+    border: 1px solid #ddd;
+}
+
+.post-date {
+    font-size: 0.8em;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.post-actions {
+    border-top: 1px solid #eee;
+    padding-top: 10px;
+}
+
+.like-button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.comments-count {
+    margin-left: 10px;
+}
+

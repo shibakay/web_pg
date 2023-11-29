@@ -42,17 +42,14 @@
 </head>
 
 <body>
-
+<nav>
+    <a href="index.php">ホーム</a></li>
+    <a href="create_post.php">新規投稿</a></li>
+    <a href="mypage.php">マイページ</a></li>
+    <a href="login.php">ログイン</a></li>
+    <a href="logout.php">ログアウト</a></li>
+</nav>
 </body>
 
 </html>
-<nav>
-    <a href="index.php">ホーム</a>
-    <a href="favorite-show.php">新規投稿</a>
-    <a href="history.php"></a>
-    <a href="cart-show.php">カート</a>
-    <a href="purchase-input.php">購入</a>
-    <a href="login-input.php">ログイン</a>
-    <a href="logout-input.php">ログアウト</a>
-    <a href="customer-input.php">会員登録</a>
-</nav>
+
